@@ -1,0 +1,42 @@
+FORMAT: 1A
+HOST: https://invacaretest-a493523.integration.us2.oraclecloud.com:443/integration/flowapi/rest/ORDERSTATUSUPDATES/v02/
+
+# Order Status Update
+
+Order status updates wil return the status of an order iff the order number is provided.
+
+## Order Status [/order/getstatus{order_number}]
+
+### Get Status  [GET]
+The source is OCC and target is EBS.
++ Request
+    + Headers
+
+            Authorization: Basic aW52YWNhcmVhZG1pbjpBcnlTaGxDbGQyMDE3
+
++ Parameters
+    + order_number (required, string)
+
++ Response 200 (application/json)
+
+        
+        {  
+           "order":{  
+              "each_order":[  
+                 {  
+                    "order_number":"",
+                    "order_status":"",
+                    "line_number":"",
+                    "ordered_item":"",
+                    "line_status":""
+                 },
+                 {  
+                    "order_number":"",
+                    "order_status":"",
+                    "line_number":"",
+                    "ordered_item":"",
+                    "line_status":""
+                 }
+              ]
+           }
+        }

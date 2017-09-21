@@ -1,0 +1,79 @@
+FORMAT: 1A
+HOST: 
+
+# Credit Card Tokenization
+
+Credit Card Tokenization is an API that provides the EBS with the customer's information
+
+## Credit Card Tokenization OCC to ICS [/creditcard/tokens]
+
+The source is Oracle EBS and target is OCC.
+
+
+### Receive Credit Card Token Response [GET]
+
++ Response 200 (application/json)
+
+        {
+            {
+               "token": {
+                    "p_msg_count": 12341234  
+                    "p_msg_data": "",
+                    "p_result_out": "",
+                    "p_return_status": ""
+               }
+            }
+        }
+
+### Send Credit Card Token [POST]
+
+You may send customer's credit card information. <!-- <It takes a JSON
+object containing a payer's credit card information.> -->
+
++ Request (application/json)
+
+        {
+
+            "creditcard": {
+                "payer_name":   123123213,
+                "address1":     "2422 UniversityDrive",
+                "address2":     "",
+                "address3":     "",
+                "city":         "Lawrence",
+                "county":       "Douglas County",
+                "state":        "Kansas",
+                "postalcode":   "66045",
+                "country":      "USA",
+                "cc_type":      "VISA",
+                "cc_num":       "1234000000000000",
+                "cc_expdate":   "0522",
+                "cc_holdername":"Nwanko Kanu",
+                "amount":       123123123,
+                "currency_code":"362",
+                "org_id":       123213123,
+                "key_id":       "null",
+                "encr_cvv":     "null",
+                "phase_id":     123123123,
+                "int_chk":      "null"
+
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /creditcard/2
+
+    + Body
+
+            {
+                {
+                   "token": {
+                        "p_msg_count": 12341234  
+                        "p_msg_data": "",
+                        "p_result_out": "",
+                        "p_return_status": ""
+                   }
+                }
+            }
