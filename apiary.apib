@@ -1,0 +1,41 @@
+FORMAT: 1A
+HOST: https://invacaretest-a493523.integration.us2.oraclecloud.com:443/integration/flowapi/rest/PRODUCTAVAILABILITY/v01/
+
+# Get Web Pricing
+
+Get Web Pricing will return the status and price for the required item based on the customer's unique profile
+## Web Pricing [/price/getwebprice]
+
+### Get Web Price  [GET]
+The source is OCC and target is EBS.
++ Request
+    + Headers
+
+            Authorization: Basic aW52YWNhcmVhZG1pbjpBcnlTaGxDbGQyMDE3
+
++ Parameters
+    + item_string (required, string)
+    + customer_name (required, string)
+    + business_unit (required, string)
+
+
+
+
++ Response 200 (application/json)
+
+        
+        {
+            "price":
+                {
+                    "o_status": "",
+                    "o_status_msg": "",
+                    "o_price_tbl":
+                        {
+                            "Line":"",
+                            "item":"",
+                            "unit_price":"",
+                            "net_price":"",
+                            "status_text":""
+                        }
+                }   
+        }
