@@ -1,12 +1,13 @@
 FORMAT: 1A
-HOST: https://invacaretest-a493523.integration.us2.oraclecloud.com:443/integration/flowapi/rest/PRODUCTAVAILABILITY/v01/
+HOST: https://invacaretest-a493523.integration.us2.oraclecloud.com:443/integration/flowapi/rest/ORDERSTATUSUPDATES/v02/
 
-# Get Web Pricing
+# Order Status Update
 
-Get Web Pricing will return the status and price for the required item based on the customer's unique profile
-## Web Pricing [/price/getwebprice]
+Order status updates wil return the status of an order iff the order number is provided.
 
-### Get Web Price  [GET]
+## Order Status [/order/getstatus{order_number}]
+
+### Get Status  [GET]
 The source is OCC and target is EBS.
 + Request
     + Headers
@@ -14,28 +15,28 @@ The source is OCC and target is EBS.
             Authorization: Basic aW52YWNhcmVhZG1pbjpBcnlTaGxDbGQyMDE3
 
 + Parameters
-    + item_string (required, string)
-    + customer_name (required, string)
-    + business_unit (required, string)
-
-
-
+    + order_number (required, string)
 
 + Response 200 (application/json)
 
         
-        {
-            "price":
-                {
-                    "o_status": "",
-                    "o_status_msg": "",
-                    "o_price_tbl":
-                        {
-                            "Line":"",
-                            "item":"",
-                            "unit_price":"",
-                            "net_price":"",
-                            "status_text":""
-                        }
-                }   
+        {  
+           "order":{  
+              "each_order":[  
+                 {  
+                    "order_number":"",
+                    "order_status":"",
+                    "line_number":"",
+                    "ordered_item":"",
+                    "line_status":""
+                 },
+                 {  
+                    "order_number":"",
+                    "order_status":"",
+                    "line_number":"",
+                    "ordered_item":"",
+                    "line_status":""
+                 }
+              ]
+           }
         }
